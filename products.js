@@ -1,0 +1,35 @@
+/* global Vue, axios */
+
+var App = {
+  data: function () {
+    return {
+      message: "My Products",
+      products: [],
+      productName: "",
+      productPrice: 0,
+      productDesc: "",
+      productImgUrl: "",
+    };
+  },
+  created: function () {
+    this.productIndex();
+  },
+  methods: {
+    productIndex: function () {
+      axios.get("http://localhost:3000/products").then((response) => {
+        this.products = response.data;
+      });
+    },
+    createProduct: function () {
+      var params = {
+        name: this.productName,
+        price: this.productPrice,
+        description: this.productDesc,
+        image_url: this.productUmgUrl,
+      };
+    },
+    deleteProduct: function () {},
+  },
+};
+
+Vue.createApp(App).mount("#app");
