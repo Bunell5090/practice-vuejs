@@ -19,13 +19,12 @@
       Description: <input type="text" @model="productDesc">
       Image URL: <input type="text" @model="productImgUrl">
       <button @click="createProduct()">Create Product</button>
-
-
     </div>
     <div v-for="product in products">
       <h3>{{ product.name }}</h3>
       <img :src="product.image_url" alt="Product Image" style="max-width:200px;">
       <p>{{ product.price }}</p>
+      <button @click="deleteProduct(product.id)">Delete</button>
     </div>
   </div>
 </body>

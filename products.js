@@ -28,7 +28,11 @@ var App = {
         image_url: this.productUmgUrl,
       };
     },
-    deleteProduct: function () {},
+    deleteProduct(product_id) {
+      axios.delete(`http://localhost:3000/products/${product_id}`).then((response) => {
+        console.log(response);
+      });
+    },
   },
 };
 
